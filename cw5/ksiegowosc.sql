@@ -57,6 +57,46 @@ CONSTRAINT id_premii_FK
 FOREIGN KEY (id_premii) 
 REFERENCES ksiegowosc.premia(id_premii)
 );
+--dodanie opisów do tabeli pracownicy
+EXEC sys.sp_addextendedproperty
+@name = N'Opis tabeli o pracownikach',
+@value = N'Imię, nazwisko, adres i nr telefonu pracowników',
+@level0type = N'SCHEMA', @level0name = 'ksiegowosc',
+@level1type = N'TABLE', @level1name = 'pracownicy';
+GO
+
+--dodanie opisów do tabeli godziny
+EXEC sys.sp_addextendedproperty
+@name = N'Opis tabeli zawierającej godziny',
+@value = N'Informacje o przepracowanych godzinach',
+@level0type = N'SCHEMA', @level0name = 'ksiegowosc',
+@level1type = N'TABLE', @level1name = 'godziny';
+GO
+
+--dodanie opisów do tabeli pensja
+EXEC sys.sp_addextendedproperty
+@name = N'Opis tabeli o pensjach',
+@value = N'Informacje o pensjach na danych stanowiskach',
+@level0type = N'SCHEMA', @level0name = 'ksiegowosc',
+@level1type = N'TABLE', @level1name = 'pensja';
+GO
+
+--dodanie opisów do tabeli premia
+EXEC sys.sp_addextendedproperty
+@name = N'Opis tabeli informującej o premiach',
+@value = N'Informacje o wysokości i rodzaju premii',
+@level0type = N'SCHEMA', @level0name = 'ksiegowosc',
+@level1type = N'TABLE', @level1name = 'premia';
+GO
+
+--dodanie opisów do tabeli wynagrodzenia
+EXEC sys.sp_addextendedproperty
+@name = N'Opis tabeli informującej o wynagrodzeniach',
+@value = N'Tabela łącząca pracowników z pensją i premią',
+@level0type = N'SCHEMA', @level0name = 'ksiegowosc',
+@level1type = N'TABLE', @level1name = 'wynagrodzenia';
+GO
+
 
 --Zad 5
 --dodanie rekordów
